@@ -3,10 +3,27 @@ import { useEffect, useState } from "react";
 const width = 8;
 const candyColors = ["blue", "green", "orange", "purple", "red", "yellow"];
 
-const App = () => {
-  const [currentArrangement, setCurrentArrangement] = useState([]);
+function App() {
+  const [currentColorArrangement, setCurrentColorArrangement] = useState([]);
 
-  const createBoard = () => {
+  function checkForColumnOfThree() {
+    for (let i = 0; i < 47; i++) {
+      const columnOfThree = [i, i + width, i + width * 2];
+      const decidedColor = currentColorArrangement[i];
+
+      if (
+        columnOfThree.every(
+          square => currentColorArrangement[square] === decidedColor,
+        )
+      ) {
+        columnOfThree.forEach(square => (currentColorArrangement[square] = ""));
+      }
+    }
+  }
+
+  checkForColumnOfThree();
+
+  function createBoard() {
     const randomColorArrangement = [];
     for (let i = 0; i < width * width; i++) {
       const randomColor =
@@ -14,19 +31,19 @@ const App = () => {
       randomColorArrangement.push(randomColor);
     }
 
-    setCurrentArrangement(randomColorArrangement);
-  };
+    setCurrentColorArrangement(randomColorArrangement);
+  }
 
   useEffect(() => {
     createBoard();
   }, []);
 
-  console.log(currentArrangement);
+  console.log(currentColorArrangement);
 
   return (
     <div className="App">
       <div className="game">
-        {currentArrangement.map((candyColor, index) => (
+        {currentColorArrangement.map((candyColor, index) => (
           <img
             key={index}
             style={{ backgroundColor: candyColor }}
@@ -36,7 +53,7 @@ const App = () => {
       </div>
     </div>
   );
-};
+}
 
 export default App;
 
