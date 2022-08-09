@@ -77,6 +77,15 @@ function App() {
     }
   }
 
+  function moveIntoSquareBelow() {
+    for (let i = 0; i < 64 - width; i++) {
+      if (currentColorArrangement[1] + width === "") {
+        currentColorArrangement[i + width] = currentColorArrangement[i];
+        currentColorArrangement[i] = "";
+      }
+    }
+  }
+
   function createBoard() {
     const randomColorArrangement = [];
     for (let i = 0; i < width * width; i++) {
