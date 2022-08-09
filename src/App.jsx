@@ -19,6 +19,8 @@ function App() {
         )
       ) {
         columnOfThree.forEach(square => (currentColorArrangement[square] = ""));
+
+        return true;
       }
     }
   }
@@ -39,6 +41,8 @@ function App() {
         )
       ) {
         rowOfThree.forEach(square => (currentColorArrangement[square] = ""));
+
+        return true;
       }
     }
   }
@@ -54,6 +58,8 @@ function App() {
         )
       ) {
         columnOfFour.forEach(square => (currentColorArrangement[square] = ""));
+
+        return true;
       }
     }
   }
@@ -75,6 +81,8 @@ function App() {
         )
       ) {
         rowOfFour.forEach(square => (currentColorArrangement[square] = ""));
+
+        return true;
       }
     }
   }
@@ -128,6 +136,25 @@ function App() {
     ];
 
     const validMove = validMoves.includes(squareBeingReplacedId);
+
+    const isAColumnOfFour = checkForColumnOfFour();
+    const isARowOfFour = checkForRowOfFour();
+    const isAColumnOfThree = checkForColumnOfThree();
+    const IsARowOfThree = checkForRowOfThree();
+
+    if (
+      squareBeingReplacedId &&
+      validMove &&
+      (IsARowOfThree || isARowOfFour || isAColumnOfThree || isAColumnOfFour)
+    ) {
+      setSquareBeingDragged(null);
+      setSquareBeingReplaced(null);
+    } else {
+      currentColorArrangement[squareBeingReplacedId] =
+        squareBeingReplaced.style.backgroundColor;
+      currentColorArrangement[squareBeingDraggedId] =
+        squareBeingDragged.style.backgroundColor;
+    }
 
     console.log("drag End", squareBeingDraggedId, squareBeingReplacedId);
   }
