@@ -1,24 +1,11 @@
 import { useEffect, useState } from "react";
 
 import ScoreBoard from "./components/ScoreBoard";
+import { candyColors } from "./components/CandyColorsList";
 
-import BlueCandy from "./images/blue-candy.png";
-import GreenCandy from "./images/green-candy.png";
-import OrangeCandy from "./images/orange-candy.png";
-import PurpleCandy from "./images/purple-candy.png";
-import RedCandy from "./images/red-candy.png";
-import YellowCandy from "./images/yellow-candy.png";
 import blank from "./images/blank.png";
 
 const width = 8;
-const candyColors = [
-  BlueCandy,
-  GreenCandy,
-  OrangeCandy,
-  PurpleCandy,
-  RedCandy,
-  YellowCandy,
-];
 
 function App() {
   const [currentColorArrangement, setCurrentColorArrangement] = useState([]);
