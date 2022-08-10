@@ -1,6 +1,10 @@
 .App {
   display: flex;
   padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
 }
 
 .game {
@@ -13,4 +17,13 @@
 .game img {
   width: 70px;
   height: 70px;
+}
+
+.score-board{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: cornflowerblue;
+  color: aliceblue;
+  border-radius: 1rem;
+  width: 80%;
+  text-align: center;
 }

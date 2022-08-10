@@ -225,6 +225,7 @@ function App() {
             onDragLeave={e => e.preventDefault()}
             onDrop={dragDrop}
             onDragEnd={dragEnd}
+            className="candy"
           />
         ))}
       </div>
