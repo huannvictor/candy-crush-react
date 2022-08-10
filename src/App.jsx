@@ -172,8 +172,6 @@ function App() {
     }
   }
 
-  console.log(scoreDisplay);
-
   function createBoard() {
     const randomColorArrangement = [];
     for (let i = 0; i < width * width; i++) {
